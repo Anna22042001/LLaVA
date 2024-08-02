@@ -33,7 +33,7 @@ for IDX in $(seq 0 $((CHUNKS-1))); do
     cat ./playground/data/eval/gqa/answers/$SPLIT/$CKPT/${CHUNKS}_${IDX}.jsonl >> "$output_file"
 done
 
-python scripts/convert_gqa_for_eval.py --src $output_file --dst $GQADIR/testdev_balanced_predictions.json
+python scripts/convert_gqa_for_eval.py --src $output_file --dst $GQADIR/eval/testdev_balanced_predictions.json
 
 cd $GQADIR
 python eval/eval.py --tier testdev_balanced
