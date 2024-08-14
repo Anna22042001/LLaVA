@@ -13,7 +13,7 @@ for IDX in $(seq 0 $((CHUNKS-1))); do
     CUDA_VISIBLE_DEVICES=${GPULIST[$IDX]} python -m llava.eval.model_vqa_nlvr \
         --model-path liuhaotian/llava-v1.5-7b \
         --question-file ./playground/data/eval/nlvr2/$SPLIT.jsonl \
-        --image-folder ./playground/data/eval/nlvr2/data/images \
+        --image-folder ./playground/data/eval/nlvr2/data/ \
         --answers-file ./playground/data/eval/nlvr2/answers/$SPLIT/$CKPT/${CHUNKS}_${IDX}.jsonl \
         --num-chunks $CHUNKS \
         --chunk-idx $IDX \
