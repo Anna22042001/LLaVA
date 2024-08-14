@@ -10,7 +10,7 @@ SPLIT="llava_nlvr2_questions"
 NLVR2DIR="./playground/data/eval/nlvr2/data"
 
 for IDX in $(seq 0 $((CHUNKS-1))); do
-    CUDA_VISIBLE_DEVICES=${GPULIST[$IDX]} python -m llava.eval.model_vqa_loader \
+    CUDA_VISIBLE_DEVICES=${GPULIST[$IDX]} python -m llava.eval.model_vqa_nlvr \
         --model-path liuhaotian/llava-v1.5-7b \
         --question-file ./playground/data/eval/nlvr2/$SPLIT.jsonl \
         --image-folder ./playground/data/eval/nlvr2/data/images \
