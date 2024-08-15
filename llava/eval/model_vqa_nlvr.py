@@ -58,12 +58,12 @@ def eval_model(args):
         for image_file in image_files:
             image = Image.open(os.path.join(args.image_folder, image_file)).convert('RGB')
             lst_images.append(image)
-        image_tensor = process_images(lst_images, image_processor, model.config)[0]
+        image_tensor = process_images(lst_images, image_processor, model.config)
 
         with torch.inference_mode():
             output_ids = model.generate(
                 input_ids,
-                images=image_tensor.unsqueeze(0).half().cuda(),
+                images=image_tensor.half().cuda(),
                 image_sizes=[image.size],
                 do_sample=True if args.temperature > 0 else False,
                 temperature=args.temperature,
