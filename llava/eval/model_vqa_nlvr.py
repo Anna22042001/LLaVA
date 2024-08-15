@@ -80,6 +80,7 @@ def eval_model(args):
                                    "prompt": cur_prompt,
                                    "text": outputs,
                                    "answer_id": ans_id,
+                                   "answer": line["question_id"],
                                    "model_id": model_name,
                                    "metadata": {}}) + "\n")
         ans_file.flush()
